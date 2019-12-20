@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/home.css">
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1>InstantGram</h1>
-        Welcome back <%= username %>
-        <a href="/home/create">Upload</a>
-        <a href="/user/logout">LOGOUT</a>
-    </header>
+    <form action="/home/create" method="POST">
+        Image URL: <input type="text" name="url">
+        description: <input type="text" name="description">
+        <input type="submit" name="submit">
+    </form>
 </body>
 </html>

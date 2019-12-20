@@ -11,6 +11,7 @@ app.use(session({
     saveUninitialized: false
 }));
 app.use(express.urlencoded({extended: false}));
+app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {

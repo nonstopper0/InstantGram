@@ -44,7 +44,9 @@ router.post('/registration', async(req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    res.render('user/login.ejs')
+    res.render('user/login.ejs', {
+        message: req.session.message
+    })
 })
 
 router.get('/registration', (req, res) => {
