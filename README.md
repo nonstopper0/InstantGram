@@ -8,15 +8,15 @@ Wire-frame
 
 
 User functions:
-Login / register on home page
-edit own profile on edit page
-post photos(urls) on create page
-like photos on index page
-dislike photos on index page
+Login / register on home page <br>
+edit own profile on edit page <br>
+post photos(urls) on create page <br>
+like photos on index page <br>
+dislike photos on index page <br>
 
-Photo properties:
-date created 
-likes
+Photo properties: <br>
+date created  <br>
+likes <br>
 dislikes
 
 
