@@ -15,5 +15,11 @@ User is taken to the index page where they can see photos posted by most recent 
 if user clicks like / dislike on a photo it is added to the photo model on desired photo. <br>
 if user clicks on the photo posters profile / their own profile it takes them to the users personal page  where you can see all photos posted aswell as the photos ratings / description <br>
 if user clicks on upload they are taken to a create screen where they can add a description and a photo url for the post. Once they click submit the photo is added to the home page where everyone can see. <br>
-
+<br>
+<br>
+Strech goals: <br>
+Mobile Port <br>
+Display images <br>
+Upload images (maybe embed or direct to imgur then steal the link?) <br>
+Followers/ following <br>
 
