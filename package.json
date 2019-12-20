@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/nonstopper0/InstantGram#readme",
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
