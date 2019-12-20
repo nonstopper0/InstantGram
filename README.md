@@ -5,3 +5,18 @@ User will be able to create an account on the database where they will be able t
 
 Wire-frame 
 ![wire-frame](https://i.imgur.com/S5frrUZ.jpg)
+
+
+User functions:
+Login / register on home page
+edit own profile on edit page
+post photos(urls) on create page
+like photos on index page
+dislike photos on index page
+
+Photo properties:
+date created 
+likes
+dislikes
+
+
