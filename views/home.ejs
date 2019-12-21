@@ -14,5 +14,14 @@
         <a href="/home/create">Upload</a>
         <a href="/user/logout">LOGOUT</a>
     </header>
+    <% for (i = 0; i < photos.length; i++) { %>
+        <div class="home-photo">
+            <img src="<%=photos[i].url%>">
+            <h3><%=photos[i].user_username%></h3>
+            <p><%=photos[i].description%></p>
+            <input class="like" id="<%=photos[i]%>" type="button">
+            <input class="dislike" id="<%=photos[i]._id%>" type="button">
+        </div>
+    <% } %>
 </body>
 </html>

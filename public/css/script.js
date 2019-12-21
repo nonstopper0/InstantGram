@@ -1,0 +1,1 @@
+$('.like').click( console.log('yes'));

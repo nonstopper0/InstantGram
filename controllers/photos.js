@@ -11,7 +11,8 @@ router.post('/create', async(req, res) => {
         const photoParams = {
             url: req.body.url,
             description: req.body.description,
-            user_id: foundUser._id
+            user_id: foundUser._id,
+            user_username: foundUser.username
         }
         await Photo.create(photoParams);
         res.redirect('/home');
@@ -22,10 +23,12 @@ router.post('/create', async(req, res) => {
 })
 
 // check if user is logged in while visiting home page
-router.get('/', (req, res) => {
+router.get('/', async(req, res) => {
+    let foundPhotos = await Photo.find();
     if(req.session.logged) {
         res.render('home.ejs', {
-            username: req.session.username
+            username: req.session.username,
+            photos: foundPhotos,
         })
     } else {
         res.redirect('/user/login');
@@ -41,4 +44,5 @@ router.get('/create', (req, res) => {
     }
 
 })
+
 module.exports = router;
