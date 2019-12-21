@@ -16,11 +16,12 @@
     </header>
     <% for (i = 0; i < photos.length; i++) { %>
         <div class="home-photo">
-            <img src="<%=photos[i].url%>">
-            <h3><%=photos[i].user_username%></h3>
+            <a href="/home/<%=photos[i]._id%>"><div class='img' style='background-image: url("<%=photos[i].url%>")'></div> </a>
             <p><%=photos[i].description%></p>
-            <input class="like" id="<%=photos[i]%>" type="button">
-            <input class="dislike" id="<%=photos[i]._id%>" type="button">
+            <form action="/home" method="PUT">
+                <input class="like" id="<%=photos[i]._id%>" type="submit">
+                <input class="dislike" id="<%=photos[i]._id%>" type="submit">
+            </form>
         </div>
     <% } %>
 </body>

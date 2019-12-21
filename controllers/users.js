@@ -63,6 +63,19 @@ router.get('/logout', (req, res) => {
     })
 })
 
+router.get('/:id', async(req, res) => {
+    try {
+        const foundUser = await User.findById(req.params.id);
+        console.log(foundUser);
+        res.render('user/profile.ejs', {
+            user: foundUser
+        })
+    } catch(err) {
+        res.send(err);
+    }
+})
+
+
 
 
 module.exports = router;

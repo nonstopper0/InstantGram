@@ -45,4 +45,17 @@ router.get('/create', (req, res) => {
 
 })
 
+router.get('/:id', async(req, res) => {
+    try {
+        const foundPhoto = await Photo.findById(req.params.id);
+        const foundUser = await User.findById(foundPhoto.user_id);
+        res.render('photo/show.ejs', {
+            photo: foundPhoto,
+            user: foundUser
+        })
+    } catch(err) {
+        res.send(err);
+    }
+})
+
 module.exports = router;
