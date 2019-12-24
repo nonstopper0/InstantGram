@@ -36,11 +36,11 @@ router.post('/registration', async(req, res) => {
         const createdUser = await User.create(userDbEntry);
         req.session.username = req.body.username;
         req.session.logged = true;
-        res.send(req.session);
+        res.redirect('/home');
     } catch(err) {
-        res.send(err);
+        res.redirect('/user/registration');
+        req.session.message = "This username or email is already in our system"
     }
-    res.redirect('/home');
 });
 
 router.get('/login', (req, res) => {

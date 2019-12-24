@@ -16,6 +16,10 @@
         <div class="main">
             <img src="<%=photo.url%>">
         </div>
+        <form action="/home/<%=photo._id%>" method="PUT">
+            <input class="like" id="<%=photo._id%>" type="submit" name="Like" value="Like">
+            <input class="dislike" id="<%=photo._id%>" type="submit" name ="Dislike" value="Dislike" >
+        </form>
         <div class='below'>
             <p> <%= user.username%> - <%= photo.description %></p>
         </div>

@@ -4,6 +4,7 @@ const router = express.Router();
 const Photo = require('../models/photo.js');
 const User = require('../models/user.js');
 
+// starts at '/home'
 // Photo create route, assigns owner id according to who is currently logged in
 router.post('/create', async(req, res) => {
     try {
@@ -20,6 +21,14 @@ router.post('/create', async(req, res) => {
         res.send(err);
     }
 
+})
+
+router.post('/:id', (req, res) => {
+    try {
+        console.log(req.query);
+    } catch(err){
+        res.send(err);
+    }
 })
 
 // check if user is logged in while visiting home page
@@ -53,9 +62,11 @@ router.get('/:id', async(req, res) => {
             photo: foundPhoto,
             user: foundUser
         })
+        console.log(req);
     } catch(err) {
         res.send(err);
     }
-})
+});
+
 
 module.exports = router;
