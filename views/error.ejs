@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Error!</title>
 </head>
 <body>
     <header>
         <a href='/home' class="title"><h1>InstantGram</h1></a>
         <a href="/home/create"><img src="/images/upload.png"></a>
         <a href="/user/logout"><img src="/images/logout.png"></a>
-        <a href="/user/<%= user._id %>"><img src="/images/user.png"></a>
+        <a href="/user"><img src="/images/user.png"></a>
     </header>
     <main>
-        <%= user.username %>
-        <%= user.bio %>
+        <h1>Uh oh! theres been an unexpected error on our end! We apologize</h1>
     </main>
 </body>
 </html>

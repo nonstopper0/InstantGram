@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/home.css">
     <title>Document</title>
 </head>
 <body>
-    <form action="/home/create" method="POST">
-        Image URL: <input type="text" name="url">
-        description: <input type="text" name="description">
-        <input type="submit" name="submit">
-    </form>
+    <header>
+        <a href='/home' class="title"><h1>InstantGram</h1></a>
+        <a href="/home/create"><img src="/images/upload.png"></a>
+        <a href="/user/logout"><img src="/images/logout.png"></a>
+        <a href="/user/<%=founduser._id%>"><img src="/images/user.png"></a>
+    </header>
+    <main>
+        <form action="/home/create" method="POST" enctype="multipart/form-data">
+            Image: <input type="file" name="img" accept="image/*" >
+            description: <input type="text" name="description">
+            <input type="submit" value="Upload Photo">
+        </form>
+    </main>
 </body>
 </html>

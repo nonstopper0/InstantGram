@@ -9,10 +9,10 @@
 </head>
 <body>
     <header>
-        <h1>InstantGram</h1>
+        <a href='/home' class="title"><h1>InstantGram</h1></a>
         <a href="/home/create"><img src="/images/upload.png"></a>
         <a href="/user/logout"><img src="/images/logout.png"></a>
-        <a href="/user"><img src="/images/user.png"></a>
+        <a href="/user/<%= user._id %>"><img src="/images/user.png"></a>
     </header>
     <main>
     <% for (i = 0; i < photos.length; i++) { %>
@@ -20,7 +20,7 @@
             <div class="home-photo-header">
                 <h4><%=photos[i].user_username%></h4>
             </div>
-             <a href="/home/<%=photos[i]._id%>"><div class='img' style='background-image: url("<%=photos[i].url%>")'></div></a>
+             <a href="/home/<%=photos[i]._id%>"><div class='img' style='background-image: url("data:image/<%=photos[i].img.contentType%>;base64,<%=photos[i].img.data.toString('base64')%>")'></div></a>
             <p><%=photos[i].description%></p>
         </div>
     <% } %>

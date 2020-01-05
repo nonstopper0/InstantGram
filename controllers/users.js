@@ -66,7 +66,6 @@ router.get('/logout', (req, res) => {
 router.get('/:id', async(req, res) => {
     try {
         const foundUser = await User.findById(req.params.id);
-        console.log(foundUser);
         res.render('user/profile.ejs', {
             user: foundUser
         })
@@ -75,6 +74,14 @@ router.get('/:id', async(req, res) => {
     }
 })
 
+router.get('/', async(req, res) => {
+    if (req.session.logged) {
+        let foundUser = await User.findOne({username: req.session.username});
+        res.redirect(`/user/${foundUser._id}`)
+    } else {
+        res.redirect('/user/login');
+    }
+})
 
 
 

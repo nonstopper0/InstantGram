@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/show.css">
     <title>View Photo</title>
 </head>
 <body>
     <header>
-        <div class='topbar'>
-            <a href="/user/<%=user._id%>"><h1><%=user.username%></h1></a>
-        </div>
+        <a href='/home' class="title"><h1>InstantGram</h1></a>            <a href="/home/create"><img src="/images/upload.png"></a>
+        <a href="/user/logout"><img src="/images/logout.png"></a>
+        <a href="/user/<%= user._id %>"><img src="/images/user.png"></a>
     </header>
     <main>
         <div class="main">
-            <img src="<%=photo.url%>">
+            <img src="data:image/<%=photo.img.contentType%>;base64,<%=photo.img.data.toString('base64')%>">
         </div>
         <form action="/home/<%=photo._id%>" method="PUT">
             <input class="like" id="<%=photo._id%>" type="submit" name="Like" value="Like">
@@ -22,6 +23,9 @@
         </form>
         <div class='below'>
             <p> <%= user.username%> - <%= photo.description %></p>
+            <% if (matched) { %>
+                <a href ='<%=photo._id%>/edit'>EDIT</a>
+            <% } %>
         </div>
     </main>
 </body>
