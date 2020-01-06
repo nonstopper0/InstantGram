@@ -12,17 +12,23 @@
     <%- include("../partials/header")%>
     <main>
         <div class="main">
+            <% if (matched) { %>
+                <form action="<%=photo._id%>/edit">
+                    <input class="modify" type="submit" name="EDIT" value="EDIT">
+                </form>
+                <form action="/home/<%=photo._id%>?_method=DELETE" method='POST'>
+                    <input class="modify" type="submit" name="delete" value="delete"></input>
+                </form> 
+            <% } %>
             <img src="data:image/<%=photo.img.contentType%>;base64,<%=photo.img.data.toString('base64')%>">
+            <form action="/home/<%=photo._id%>" method="PUT">
+                <input class="vote" id="<%=photo._id%>" type="submit" name="Like" value="Like">
+                <input class="vote" id="<%=photo._id%>" type="submit" name ="Dislike" value="Dislike" >
+            </form>
+            <h5><%=photo.createdAt.toDateString()%></h5>
         </div>
-        <form action="/home/<%=photo._id%>" method="PUT">
-            <input class="like" id="<%=photo._id%>" type="submit" name="Like" value="Like">
-            <input class="dislike" id="<%=photo._id%>" type="submit" name ="Dislike" value="Dislike" >
-        </form>
         <div class='below'>
             <p> <%= user.username%> - <%= photo.description %></p>
-            <% if (matched) { %>
-                <a href ='<%=photo._id%>/edit'>EDIT</a>
-            <% } %>
         </div>
     </main>
 </body>

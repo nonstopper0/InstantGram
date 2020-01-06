@@ -52,6 +52,17 @@ router.put('/:id', async(req, res) => {
     }
 })
 
+router.delete('/:id', async(req, res) => {
+    try {
+        await Photo.findByIdAndDelete(req.params.id);
+        res.redirect('/home');
+    } catch(err) {
+        res.render('error.ejs', {
+            error: err
+        })
+    }
+})
+
 // check if user is logged in while visiting home page
 router.get('/', async(req, res) => {
     if(req.session.logged) {

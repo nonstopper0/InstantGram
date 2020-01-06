@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/edit.css">
     <title>Document</title>
 </head>
 <body>
     <%- include("../partials/header")%>
     <main>
         <div class="main">
-            <img src="<%=photo.url%>">
+            <img src="data:image/<%=photo.img.contentType%>;base64,<%=photo.img.data.toString('base64')%>">
         </div>
         <div class='below'>
             <p> <%= user.username%> 
         </div>
         <form action="/home/<%=photo._id%>?_method=PUT" method="POST">
-            <input type="text" name="description" value="<%=photo.description%>">
-            <input type='submit'>
+            <input type="text" name="description" value="<%=photo.description%>" maxlength="50">
+            <input id="submit" type='submit' value="submit">
         </form>
     </main>
 </body>

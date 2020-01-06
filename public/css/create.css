@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: -1px;
+}
+.main {
+    font-size: 30px;
+    border: 1px solid rgb(198, 198, 198);
+    width: fit-content;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 80px;
+
+}
+#btn {
+    font-size: 10px;
+    height: 25px;
+    width: fit-content;
+    border-radius: 5%;
+    background-color: rgb(48, 116, 140);
+    color: white;
+    border-bottom: 3px solid rgb(25, 65, 79);
+    text-transform: uppercase;
+}
+#upload {
+    text-align: center;
+    padding-left: 65px;
+}
