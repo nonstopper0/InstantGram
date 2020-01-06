@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/show.css">
+    <link rel="stylesheet" href="/css/header.css">
     <title>View Photo</title>
 </head>
 <body>
-    <header>
-        <a href='/home' class="title"><h1>InstantGram</h1></a>            <a href="/home/create"><img src="/images/upload.png"></a>
-        <a href="/user/logout"><img src="/images/logout.png"></a>
-        <a href="/user/<%= user._id %>"><img src="/images/user.png"></a>
-    </header>
+    <%- include("../partials/header")%>
     <main>
         <div class="main">
             <img src="data:image/<%=photo.img.contentType%>;base64,<%=photo.img.data.toString('base64')%>">

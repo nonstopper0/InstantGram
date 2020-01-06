@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/header.css">
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <div class='topbar'>
-            <a href="/user/<%=user._id%>"><h1><%=user.username%></h1></a>
-        </div>
-    </header>
+    <%- include("../partials/header")%>
     <main>
         <div class="main">
             <img src="<%=photo.url%>">

@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <title><%=user.username%></title>
 </head>
 <body>
-    <header>
-        <a href='/home' class="title"><h1>InstantGram</h1></a>
-        <a href="/home/create"><img src="/images/upload.png"></a>
-        <a href="/user/logout"><img src="/images/logout.png"></a>
-        <a href="/user/<%= user._id %>"><img src="/images/user.png"></a>
-    </header>
+    <%- include("../partials/header")%>
     <main>
-        <%= user.username %>
-        <%= user.bio %>
+        <div class="info">
+            <h1><%= user.username %></h1>
+            <h2><%= user.bio %></h2>
+        </div>
+        <div class="photo-container">
+        <% for (i = 0; i < photos.length; i++) { %>
+            <div class="home-photo-container">
+                 <a href="/home/<%=photos[i]._id%>"><div class='img' style='background-image: url("data:image/<%=photos[i].img.contentType%>;base64,<%=photos[i].img.data.toString('base64')%>")'></div></a>
+            </div>
+        <% } %>
+        </div>
     </main>
 </body>
 </html>

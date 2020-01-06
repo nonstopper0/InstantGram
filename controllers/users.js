@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
+const Photo = require('../models/photo');
 
 //Login Create
 router.post('/login', async(req, res) => {
@@ -66,8 +67,10 @@ router.get('/logout', (req, res) => {
 router.get('/:id', async(req, res) => {
     try {
         const foundUser = await User.findById(req.params.id);
+        const foundPhotos = await Photo.find({user_username: foundUser.username});
         res.render('user/profile.ejs', {
-            user: foundUser
+            user: foundUser,
+            photos: foundPhotos
         })
     } catch(err) {
         res.send(err);

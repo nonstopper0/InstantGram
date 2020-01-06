@@ -72,7 +72,9 @@ router.get('/create', async(req, res) => {
     try{
         let foundUser = await User.find({username: req.session.username});
         res.render('photo/create.ejs', {
-            founduser: foundUser
+            founduser: foundUser,
+            //double declaring this to help with ejs partials
+            user: foundUser
         })
     } catch(err) {
         res.render('error.ejs', {
