@@ -13,15 +13,19 @@ let upload = multer({dest: 'public/uploads/' });
 router.post('/create', upload.single('img'), async(req, res) => {
     try {
         const foundUser = await (await User.findOne({username: req.session.username}))
-        const photoParams = {
-            img: {data: fs.readFileSync(req.file.path), contentType: req.file.mimetype},
-            description: req.body.description,
-            user_id: foundUser._id,
-            user_username: foundUser.username
+        if (req.body.description) {
+            const photoParams = {
+                img: {data: fs.readFileSync(req.file.path), contentType: req.file.mimetype},
+                description: req.body.description,
+                user_id: foundUser._id,
+                user_username: foundUser.username
+            }
+            console.log(photoParams);
+            await Photo.create(photoParams);
+            res.redirect('/home');
+        } else {
+            res.redirect('/home/create');
         }
-        console.log(photoParams);
-        await Photo.create(photoParams);
-        res.redirect('/home');
     }catch(err) {
         console.log(err);
         res.render('error.ejs', {

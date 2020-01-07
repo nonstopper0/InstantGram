@@ -12,11 +12,13 @@
     <%- include("../partials/header")%>
     <main>
         <div class="main">
-        <form action="/home/create" method="POST" enctype="multipart/form-data">
-            <p>Image:</p> <input id="upload" type="file" name="img" accept="image/*" >
-            <p>Description:</p> <input  type="text" name="description" maxlength="50">
-            <input id="btn" type="submit" value="Upload Photo">
-        </form>
+            <h6>Max File size is 5MB</h6>
+            <form action="/home/create" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="MAX_FILE_SIZE" value="4194304" /> 
+                <p>Image:</p> <input id="upload" type="file" name="img" accept="image/*" >
+                <p>Description:</p> <input  type="text" name="description" maxlength="50">
+                <input id="btn" type="submit" value="Upload Photo">
+            </form>
         </div>
     </main>
 </body>
