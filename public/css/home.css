@@ -10,6 +10,10 @@ body {
     height: 720px;
     margin: 30px auto;
     border: 1px solid rgb(196, 196, 196);
+    transition: transform 2s ease;
+}
+.home-photo-container:hover {
+    transform: scale(1.05);
 }
 .home-photo-header {
     text-align: left;

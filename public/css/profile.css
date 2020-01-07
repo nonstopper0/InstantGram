@@ -20,10 +20,14 @@ main {
     height: 245px;
     margin: 1px;
     border: 1px solid rgb(196, 196, 196);
+    background-color: black;
 }
 .photo-container p {
     text-align: center;
     overflow: hidden;
+}
+.home-photo-container:hover {
+    opacity: 0.8;
 }
 .info {
     text-align: center;
@@ -32,6 +36,14 @@ main {
     margin: 0 auto;
     border-bottom: 1px solid rgb(196, 196, 196);
     margin-bottom: 20px;
+}
+.info h2 {
+    padding: 0px 10px 0px 10px;
+    border-right: 2px solid rgb(196, 196, 196);
+    border-left: 2px solid rgb(196, 196, 196);
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 40px;
 }
 
 div .img {
@@ -52,4 +64,22 @@ div .img {
     .info {
         width: 100%;
     }
+}
+#edit {
+    position: relative;
+    font-size: 15px;
+    top: -20px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 9%;
+    background-color: rgb(48, 116, 140);
+    color: white;
+    border-bottom: 3px solid rgb(25, 65, 79);
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    margin: 100px;
+}
+input text {
+    font-size: 20px;
+    width: 100px;
 }

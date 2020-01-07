@@ -6,6 +6,7 @@ header {
     position: fixed;
     margin: 0px;
     background-color: rgb(30, 64, 79);
+    overflow: hidden;
 }
 header .title{
     float: left;
@@ -37,7 +38,16 @@ header a p {
     align-items: center;
     margin: 0px;
     margin-top: 6px;
+    animation: 1.5s ease-out slideInFromBottom;
 }
 header a p:hover {
     background-color: rgb(57, 125, 148);
+}
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(150%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }

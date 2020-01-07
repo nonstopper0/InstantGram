@@ -60,3 +60,12 @@ h5 {
     color: rgb(55, 55, 55);
     width: fit-content;
 }
+.below {
+    position: relative;
+    text-align: center;
+    margin: 100px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}

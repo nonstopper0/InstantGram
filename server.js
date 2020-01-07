@@ -2,9 +2,10 @@ const express = require('express');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const app = express();
-const port = 3000
 const bodyParser = require('body-parser');
+require('dotenv').config();
 require('./db/db.js');
+const port = process.env.PORT;
 
 
 app.use(session({

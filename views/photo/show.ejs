@@ -21,14 +21,14 @@
                 </form> 
             <% } %>
             <img src="data:image/<%=photo.img.contentType%>;base64,<%=photo.img.data.toString('base64')%>">
-            <form action="/home/<%=photo._id%>" method="PUT">
+            <form action="/home/<%=photo._id%>" method="POST">
                 <input class="vote" id="<%=photo._id%>" type="submit" name="Like" value="Like">
                 <input class="vote" id="<%=photo._id%>" type="submit" name ="Dislike" value="Dislike" >
             </form>
             <h5><%=photo.createdAt.toDateString()%></h5>
         </div>
         <div class='below'>
-            <p> <%= user.username%> - <%= photo.description %></p>
+            <p> <a href="/user/<%=user._id%>"><H3><%= user.username%></H3></a> - <%= photo.description %></p>
         </div>
     </main>
 </body>
