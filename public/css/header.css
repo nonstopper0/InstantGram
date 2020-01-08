@@ -8,6 +8,9 @@ header {
     background-color: rgb(30, 64, 79);
     overflow: hidden;
 }
+.home {
+    opacity: 0;
+}
 header .title{
     float: left;
     margin: 0 auto;
@@ -16,6 +19,7 @@ header .title{
     top: -20px;
     color: white;
     margin-left: 30px;
+    left: 0;
 }
 header a {
     position: relative;
@@ -23,6 +27,7 @@ header a {
     text-decoration: none;
     color: white;
     margin: 10px;
+    left: 70px;
 }
 header a p {
     display: flex;
@@ -49,5 +54,30 @@ header a p:hover {
     }
     100% {
         transform: translateY(0);
+    }
+}
+@media(max-width: 500px) {
+    .home {
+        opacity: 1;
+    }
+    header .title{
+        display: none;
+    }
+    header {
+        width: 100%;
+        position: fixed;
+        height: 50px;
+        bottom: 0;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    header a {
+        float: left;
+        margin: 0px;
+        left: 0px;
+    }
+    header a p {
+        font-size: 15px;
+
     }
 }
