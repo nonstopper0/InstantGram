@@ -68,16 +68,16 @@ header a p:hover {
         position: fixed;
         height: 50px;
         bottom: 0;
+        left: 0px;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
     header a {
-        float: left;
+        float: none;
         margin: 0px;
-        left: 0px;
+        left: 10px;
     }
     header a p {
         font-size: 15px;
-
     }
 }
