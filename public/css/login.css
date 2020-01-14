@@ -42,3 +42,16 @@ button {
     border-bottom: 3px solid rgb(25, 65, 79);
     text-transform: uppercase;
 }
+@media(max-width: 500px) {
+    form input {
+        width: 90%;
+    }
+    form {
+        height: 150px;
+        width: 200px
+    }
+    body {
+        margin-top: 40%;
+        height: fit-content;
+    }
+}

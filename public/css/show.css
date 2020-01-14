@@ -71,6 +71,7 @@ a {
 }
 @media(max-width: 500px) {
     main {
+        margin-top: 30px;
         font-size: 24px;
         padding: 0px;
     }
@@ -82,5 +83,10 @@ a {
         font-size: 10px;
         width: 50px;
         height: 30px;
+    }
+    .below {
+        margin: 20px;
+        margin-top: 60px;
+        margin-bottom: 80px;
     }
 }

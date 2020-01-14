@@ -38,30 +38,46 @@ router.post('/create', upload.single('img'), async(req, res) => {
 //like and dislike functionality
 router.post('/:id', async(req, res) => {
     try {
-        const foundUser = await User.findOne({username: req.session.username}, async(err, foundUser) => {
-            const foundPhoto = await Photo.findById(req.params.id);
-            const isLike = () => {
-                if (req.body.Like) {
-                    return true
-                } else if (req.body.Dislike) {
-                    return false
+        if (req.session.logged) {
+            const foundUser = await User.findOne({username: req.session.username}, async(err, foundUser) => {
+                const foundPhoto = await Photo.findById(req.params.id);
+                const isLike = () => {
+                    if (req.body.Like) {
+                        return true
+                    } else if (req.body.Dislike) {
+                        return false
+                    }
                 }
-            }
-            if(await isLike()) {
-                if ((foundUser.liked).includes(foundPhoto._id)) {
-                    User.findByIdAndUpdate(foundUser._id,{'$pull': {'liked': toString(foundPhoto._id)}})
-                    console.log(foundUser.liked);
-                    console.log('already liked')
+                // liked
+                if(await isLike()) {
+                    console.log('this is a like')
+                    if ((foundUser.liked).includes(foundPhoto._id)) {
+                        User.findByIdAndUpdate(foundUser._id,{'$pull': {'liked': toString(foundPhoto._id)}})
+                        console.log(foundUser.liked);
+                        console.log('already liked')
+                    } else {
+                        let currentLikes = await (parseInt(foundPhoto.likes)+1)
+                        console.log('not liked, now liked');
+                        console.log(currentLikes);
+                        await foundPhoto.updateOne({'likes': currentLikes});
+                        await foundUser.updateOne({'$push': {'liked': foundPhoto._id}})
+                    }
+                // dislike
                 } else {
-                    let currentLikes = await (parseInt(foundPhoto.likes)+2)
-                    console.log('not liked, now liked');
-                    console.log(currentLikes);
-                    await foundPhoto.updateOne({'likes': currentLikes});
-                    await foundUser.updateOne({'$push': {'liked': foundPhoto._id}})
+                    if ((foundUser.liked).includes(foundPhoto._id)) {
+                        const currentLikes = await (parseInt(foundPhoto.likes)-1);
+                        const foundPhotoID = foundPhoto._id
+                        const foundUserID = foundUser._id
+                        User.findOneAndUpdate({_id: foundUser._id},{'$pull': {'liked': {$in: foundPhotoID}}}, {new: true})
+                        await foundPhoto.updateOne({'likes': currentLikes});
+                        console.log(foundUser.liked);
+                        console.log('already liked, like removed');
+                    }
                 }
-            }
-            res.redirect('/home/' + req.params.id);
-        })
+                res.redirect('/home/' + req.params.id);
+        })} else {
+            res.redirect('/user/login');
+        }
     }catch(err) {
         console.log(err);
         res.render('error.ejs', {
