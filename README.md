@@ -1,6 +1,7 @@
 # InstantGram
 An Instagram 'clone' developed in CSS, HTML, Express, NodeJS, MongoDB And Javascript <br>
 
+Project can be found live here: https://instantgrammer.herokuapp.com/home <br><BR>
 User can create an account / login with our database (encrypted by bcrypt).<br>
 User can Upload Pictures directly from any device they choose to use the website on along with a description. <br>
 User can view and customize their own profiles <br>
